@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+    php:
+        build: php/
+        ports: [9000]
+        volumes:
+        - ./code:/code
+    web:
+        build: web/
+        ports:
+        - "8080:80"
+        volumes:
+        - ./code:/code
+        depends_on:
+        - php
+    db:
+        build: db
+        restart: always
+        ports:
+        - 3306:3306
+        volumes:
+         - ./code:/code
+        environment:
+        - MYSQL_ROOT_PASSWORD=password
