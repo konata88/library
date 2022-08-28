@@ -71,9 +71,7 @@ $( document ).ready(function() {
             const dateFunc = dateCheck(result.taken);
             $("#datepicker_from").datepicker("destroy");
             $("#datepicker_to").datepicker("destroy");
-			 $("#datepicker_from").val("");
-            $("#datepicker_to").val("");
-            
+
             $( "#datepicker_from" ).datepicker({
                 dateFormat: 'yy-mm-dd',
                 minDate: 0,
@@ -111,8 +109,9 @@ $( document ).ready(function() {
             getTypes('#update_type_id', result.type_id);
 
         })
-
-        $('.ui.dropdown').dropdown();
+        
+        $('#update_author_id').dropdown();
+        $('#update_type_id').dropdown();
         $('#editBookModal').modal('show');
     });
 
@@ -120,7 +119,9 @@ $( document ).ready(function() {
         getAuthors('#author_id');
         getTypes('#type_id');
 
-        $('.ui.dropdown').dropdown();
+        $('#author_id').dropdown();
+        $('#type_id').dropdown();
+
         $('#addBookModal').modal('show');
     })
 
